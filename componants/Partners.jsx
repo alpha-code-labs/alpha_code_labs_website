@@ -9,12 +9,17 @@ import './crousal.css'
 
 export const insights = [
     {
+        // id: "world-1",
+        // imgUrl: pla12,
+        // title: "Codenia Technologies",
+        // // image: "/companyLogo.png",
+        // url: "https://codeniatechnologies.com/",
+        // disable: true,
         id: "world-1",
-        imgUrl: pla12,
-        title: "Codenia Technologies",
-        // image: "/companyLogo.png",
-        url: "https://codeniatechnologies.com/",
-        disable: true,
+        imgUrl: placs,
+        title: "Coming Soon ",
+        url: "javascript:;",
+        disable: false,
     },
     {
         id: "world-2",
