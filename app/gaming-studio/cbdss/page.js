@@ -16,40 +16,33 @@ const GameOne = () => {
   const [formData, setFormData] = useState({ name: "", email: "", date: new Date() });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmitForm = (e) => {
-    e.preventDefault(); // Prevent page reload
-    setLoading(true); // Show loading state
+  const handleSubmitForm = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-    const sheetURL = process.env.NEXT_PUBLIC_GOOGLE_SHEET;
-    
-    if (!sheetURL) {
-      alert("Google Sheet URL is missing in environment variables.");
-      setLoading(false);
-      return;
-    }
+    const sheetURL = process.env.NEXT_PUBLIC_GOOGLE_SHEET; // Replace with your script URL
 
-    fetch(sheetURL, {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Something went wrong");
+    try {
+        const response = await fetch(sheetURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+        if (result.status === "success") {
+            alert("Submitted successfully!");
+            setFormData({ name: "", email: "", date: new Date() });
+        } else {
+            throw new Error("Submission failed");
         }
-        return response.json();
-      })
-      .then((data) => {
-        alert("Submitted successfully.");
-        setFormData({ name: "", email: "", date: new Date() }); // Reset form
-      })
-      .catch((error) => {
+    } catch (error) {
         alert(error.message);
-      })
-      .finally(() => {
+    } finally {
         setLoading(false);
-      });
-  };
+    }
+};
+
 
   return (
     <Grid
