@@ -35,7 +35,7 @@ const GameOne = () => {
     fetch(sheetURL, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `Name=${formData.name}&Email=${formData.email}&Date=${formData.date}`,
+      body: `Name=${formData.name}&Email=${formData.email}&Date=${formData.date}&Game=${"JOAC"}`,
     })
       .then((response) => response.text())
       .then((data) => {
