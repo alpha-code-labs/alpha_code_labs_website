@@ -1,4 +1,4 @@
-"useClient";
+"use client";
 import React from "react";
 import { Box, Grid, Card, CardMedia, Typography } from "@mui/material";
 import bgOne from "../../assets/landing-page-bg.jpg";
@@ -9,65 +9,98 @@ import astronaut from "../../assets/astronaut.png";
 const GamingStudio = () => {
   return (
     <div style={{ flex: 1 }}>    
-      <Box
+   <Box
+  sx={{
+    position: "relative",
+    height: "100vh",
+    width: "full",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    color: "white",
+    px: 2,
+    overflow: "hidden",
+    backgroundImage: `url(${bgOne.src})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* Dark Overlay */}
+  <Box
+    sx={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+    }}
+  />
+
+  {/* Content Wrapper */}
+  <Grid
+    container
+    spacing={4}
+    sx={{
+      position: "relative",
+      zIndex: 1,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      mx: "auto",
+      px: 2,
+    }}
+  >
+    {/* Left: Text Content */}
+    <Grid item xs={12} md={6} sx={{ textAlign: "left" }}>
+      <Typography
+        variant="h2"
         sx={{
-          position: "relative",
-          height: "100vh",
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          color: "white",
-          px: 2,
-          overflow: "hidden",
-          backgroundImage: `url(${bgOne.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          fontWeight: "bold",
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
+          whiteSpace: "nowrap",
         }}
       >
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-          }}
-        />
+        ACL | Gaming Studio
+      </Typography>
+      <Typography
+        variant="h4"
+        sx={{
+          fontWeight: "bold",
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
+          mt: 2,
+        }}
+      >
+        Powering the <span style={{ color: "blue" }}>Next-Gen</span> Gaming Universe!
+      </Typography>
+    </Grid>
 
-        <Box sx={{ position: "relative", zIndex: 1, px: 2 }}>
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: "bold",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
-            }}
-          >
-            ACL | Gaming Studio
-          </Typography>
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: "bold",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
-              mt: 2,
-            }}
-          >
-            Powering the Next-Gen Gaming Universe!
-          </Typography>
-        </Box>
-        <Grid style={{position: "absolute"}}  item xs={12} sm={4}  display="flex" justifyContent="center">
-            <CardMedia
-              component="img"
-              sx={{ width: "100%", maxWidth: 500 }}
-              image={astronaut.src}
-              alt={`Image`}
-              height={"full"}
-            />
-        </Grid>
-      </Box>
+    {/* Right: Image */}
+    <Grid
+      item
+      xs={12}
+      md={6}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <CardMedia
+        component="img"
+        sx={{
+          width: "100%",
+          maxWidth: 500,
+          height: "auto",
+        }}
+        image={astronaut.src}
+        alt="Astronaut Image"
+      />
+    </Grid>
+  </Grid>
+</Box>
+
+
 
       <Grid container justifyContent="center" sx={{ py: 3, backgroundColor: "black" }}>
         <Typography variant="h3" color="white" align="center">
