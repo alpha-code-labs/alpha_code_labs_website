@@ -20,7 +20,7 @@ const GameOne = () => {
     e.preventDefault();
     setLoading(true);
 
-    const sheetURL = process.env.NEXT_PUBLIC_GOOGLE_SHEET; // Replace with your script URL
+    const sheetURL = process.env.NEXT_PUBLIC_GOOGLE_SHEET;
 
     try {
         const response = await fetch(sheetURL, {
@@ -29,12 +29,15 @@ const GameOne = () => {
             body: JSON.stringify(formData),
         });
 
-        const result = await response.json();
+        // Check if response has a body before parsing
+        const text = await response.text();
+        const result = text ? JSON.parse(text) : {};
+
         if (result.status === "success") {
             alert("Submitted successfully!");
             setFormData({ name: "", email: "", date: new Date() });
         } else {
-            throw new Error("Submission failed");
+            throw new Error(result.message || "Submission failed");
         }
     } catch (error) {
         alert(error.message);
@@ -42,6 +45,7 @@ const GameOne = () => {
         setLoading(false);
     }
 };
+
 
 
   return (
