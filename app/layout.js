@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
 
         {/* Microsoft Clarity Tracking */}
         <Script
-          id="clarity-script"
+          id="microsoft-clarity-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+        
 
         {/* Google Tag Manager */}
         <Script
