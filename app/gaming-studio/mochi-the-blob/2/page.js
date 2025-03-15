@@ -168,8 +168,11 @@ const GameOne = () => {
                     color="primary"
                     fullWidth
                   >
-                    {loading ? "Submitting..." : "Submit"}
+                    {loading ? "Submitting..." : "Sign Up"}
                   </Button>
+                   <Typography  textAlign={"center"}>
+                                      <span style={{ color: "white" }}>Pre-Register</span> now to avail exciting benefits.
+                                    </Typography>
                 </form>
               </Box>
             </Box>
