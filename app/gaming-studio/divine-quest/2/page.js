@@ -11,6 +11,7 @@ import {
   Container,
   useMediaQuery,
   useTheme,
+  Modal
 } from "@mui/material";
 import bgOne from "../../../../assets/landing-page-bg.jpg";
 import bgTwo from "../../../../assets/bg-two.png";
@@ -23,6 +24,7 @@ const GameOne = () => {
     date: new Date().toISOString().split("T")[0],
   });
   const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal]= useState(false);
 
   const theme = useTheme();
   const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -40,7 +42,8 @@ const GameOne = () => {
     })
       .then((response) => response.text())
       .then((data) => {
-        alert("Submitted Successfully.", data);
+        //alert("Submitted Successfully.", data);
+        setOpenModal(true);
         setFormData({
           name: "",
           email: "",
@@ -195,6 +198,38 @@ const GameOne = () => {
           </Card>
         </Grid>
       </Container>
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+              <Box
+               
+                sx={{
+                  color: "white",
+                  
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: 300,
+                  bgcolor: "blue",
+                  boxShadow: 24,
+                  p: 3,
+                  borderRadius: "10px",
+                  textAlign: "center",
+                }}
+              >
+                <Typography variant="h4" sx={{
+                  textColor:"white",}} gutterBottom>
+                  Thanks for your interest!
+                </Typography>
+                <Typography variant="body1">We will contact you shortly.</Typography>
+                <Button
+                  variant="contained"
+                  sx={{ mt: 2 }}
+                  onClick={() => setOpenModal(false)}
+                >
+                  Close
+                </Button>
+              </Box>
+            </Modal>
     </Grid>
   );
 };
