@@ -12,6 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+       <head>
+          {/* <link rel="shortcut icon" href={favicon} /> */}
+          <link rel="shortcut icon" href="favicon.ico" />
+        </head>
       <body style={{ padding: "0px", margin: "0px", backgroundColor: "#1a232e" }}>
         {children}
 

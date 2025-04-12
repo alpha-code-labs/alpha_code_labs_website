@@ -26,6 +26,10 @@ const SideDrawer = ({ open, setOpen }) => {
         if(e == 'Contact'){
             router.push('/contact')
         }
+        if(e == 'Co-Build Offerings')
+        {
+            router.push('/co-build-offerings')
+        }
     }
 
     return (
@@ -44,7 +48,8 @@ const SideDrawer = ({ open, setOpen }) => {
                     </Grid>
                     <Divider sx={{ bgcolor: 'lightgrey', mt: '5px', width: '100%' }} />
                     <Grid item xs={12} sx={{ p: '10px', mt: '15px' }}>
-                        <Typography sx={{ fontSize: '20px', color: 'grey', cursor:'pointer' }} onClick={() => { changeHandler('About') }}>About Us</Typography>
+                        <Typography sx={{ fontSize: '20px', color: 'grey', cursor:'pointer' }} onClick={() => { changeHandler('Co-Build Offerings') }}>Co-Build Offerings</Typography>
+                        <Typography sx={{ fontSize: '20px', color: 'grey', cursor:'pointer', mt: '10px' }} onClick={() => { changeHandler('About') }}>About Us</Typography>
                         {/* <Divider sx={{ bgcolor: 'lightgrey', mt: '5px' }} /> */}
                         {/* <Typography sx={{ fontSize: '20px', color: 'grey', mt: '10px', cursor:'pointer' }} onClick={() => { changeHandler('Team') }}>Team</Typography> */}
                         {/* <Divider sx={{ bgcolor: 'lightgrey', mt: '5px' }} /> */}
